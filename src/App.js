@@ -23,6 +23,12 @@ class App extends Component {
     })
   }
 
+  handleChange(license) {
+    this.setState({
+      license,
+    })
+  }
+
   render() {
     return (
       <div className="App">
