@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LicenseInput from './LicenseInput'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.generateLicense = this.generateLicense.bind(this)
     this.availableCharacters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSuccess = this.handleSuccess.bind(this)
     this.state = {
       license: '',
     }
   }
 
   generateLicense() {
+    // /([0-9A-Z]{4}\-){3}[0-9A-Z]{4}/
     let licenseKey = ''
     for (let i = 0 ; i < 16 ; i++) {
       licenseKey += this.availableCharacters[Math.floor((Math.random() * this.availableCharacters.length) + 0)];
@@ -24,9 +28,14 @@ class App extends Component {
   }
 
   handleChange(license) {
-    this.setState({
-      license,
-    })
+    // this.setState({
+    //   license,
+    // })
+    alert('The license has successfully changed!')
+  }
+
+  handleSuccess(license) {
+    alert(`The license ${license} has successfully set!`)
   }
 
   render() {
@@ -40,6 +49,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <LicenseInput onChange={this.handleChange} />
       </div>
     );
   }

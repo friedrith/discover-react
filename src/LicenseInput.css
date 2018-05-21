@@ -1,0 +1,16 @@
+.LicenseInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.LicenseInput input[type="text"] {
+  margin: 0 10px!important;
+  width: 60px;
+  flex: 0 0 60px;
+  text-align: center;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
